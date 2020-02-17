@@ -12,23 +12,36 @@ def populate():
  # Then we will create a dictionary of dictionaries for our categories.
  # This might seem a little bit confusing, but it allows us to iterate
  # through each data structure, and add the data to our models.
-    python_pages = [{'title': 'Official Python Tutorial',
- 'url':'http://docs.python.org/3/tutorial/'},
- {'title':'How to Think like a Computer Scientist',
- 'url':'http://www.greenteapress.com/thinkpython/'},
- {'title':'Learn Python in 10 Minutes',
- 'url':'http://www.korokithakis.net/tutorials/python/'}]
-    django_pages = [{'title':'Official Django Tutorial',
- 'url':'https://docs.djangoproject.com/en/2.1/intro/tutorial01/'},
- {'title':'Django Rocks',
- 'url':'http://www.djangorocks.com/'},
- {'title':'How to Tango with Django',
- 'url':'http://www.tangowithdjango.com/'} ]
+    python_pages = [
+        {'title': 'Official Python Tutorial',
+         'url':'http://docs.python.org/3/tutorial/',
+         'views': 123},
+        {'title':'How to Think like a Computer Scientist',
+         'url':'http://www.greenteapress.com/thinkpython/',
+         'views': 456},
+        {'title':'Learn Python in 10 Minutes',
+         'url':'http://www.korokithakis.net/tutorials/python/',
+         'views': 789} ]
 
-    other_pages = [{'title':'Bottle',
- 'url':'http://bottlepy.org/docs/dev/'},
- {'title':'Flask',
- 'url':'http://flask.pocoo.org'} ]
+    django_pages = [
+        {'title':'Official Django Tutorial',
+         'url':'https://docs.djangoproject.com/en/2.1/intro/tutorial01/',
+         'views': 420},
+        {'title':'Django Rocks',
+         'url':'http://www.djangorocks.com/',
+         'views': 690},
+        {'title':'How to Tango with Django',
+         'url':'http://www.tangowithdjango.com/',
+         'views': 880} ]
+
+    other_pages = [
+        {'title':'Bottle',
+         'url':'http://bottlepy.org/docs/dev/',
+         'views': 280},
+        {'title':'Flask',
+         'url':'http://flask.pocoo.org',
+         'views': 111} ]
+
 
     cats = {'Python': {'pages': python_pages, 'views': 128 , 'likes': 64 },
             'Django': {'pages': django_pages, 'views': 64 , 'likes': 32 },
@@ -57,7 +70,7 @@ def add_page(cat, title, url, views=0):
     p.save()
     return p
 
-defdef add_cat(name, views, likes):
+def add_cat(name, views, likes):
     c = Category.objects.get_or_create(name=name)[0]
     views = 0
     likes = 0
